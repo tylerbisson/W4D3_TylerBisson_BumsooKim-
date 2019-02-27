@@ -1,0 +1,18 @@
+<h1>Cats upon cats!</h1>
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
+  <% end %>
+</ul>
+
+<form action="<%=session_url%>" method="POST">
+  <p><%= User.find_by(session_token: session[:session_token]) %></p>
+    <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="destroy my existence">
+</form>
+
+
+
+
+<a href="<%= new_cat_url %>">Create cat</a>
